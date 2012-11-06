@@ -1,4 +1,5 @@
 #! /usr/bin/env python
+# -*- coding: UTF-8 -*-
 #
 # NAME
 #        msort.py - Sort multi-line blocks of text
