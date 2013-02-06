@@ -45,8 +45,11 @@ done
 Orders vCards in all vcf files by last name."""
 
 import getopt
+import locale
 import re
 import sys
+
+locale.setlocale(locale.LC_ALL, "")
 
 class Usage(Exception):
     """Raise in case of invalid parameters"""
@@ -65,7 +68,7 @@ def _compare_pattern(sort_pattern, text1, text2):
         else:
             text_matches.append(match.group(1))
 
-    return cmp(text_matches[0], text_matches[1])
+    return locale.strcoll(text_matches[0].lower(), text_matches[1].lower())
 
 def split_and_sort(text, block_pattern, sort_pattern):
     """Split into blocks, sort them, and join them up again
