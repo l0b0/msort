@@ -12,4 +12,4 @@ install:
 	sed -i -e 's#\(\./\)\?$(SOURCE_FILE)#$(TARGET_FILE)#g' $(TARGET_PATH)
 	install --mode 644 etc/bash_completion.d/$(TARGET_FILE) /etc/bash_completion.d/
 
-include tools.mk
+include make-includes/python.mk make-includes/variables.mk
