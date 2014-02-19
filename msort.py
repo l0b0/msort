@@ -14,7 +14,7 @@
 #        https://github.com/l0b0/msort/issues
 #
 # COPYRIGHT
-#        Copyright © 2012 Victor Engmark. License GPLv3+: GNU GPL
+#        Copyright © 2012-2014 Victor Engmark. License GPLv3+: GNU GPL
 #        version 3 or later <http://gnu.org/licenses/gpl.html>.
 #        This is free software: you are free to change and redistribute it.
 #        There is NO WARRANTY, to the extent permitted by law.
@@ -51,10 +51,12 @@ import sys
 
 locale.setlocale(locale.LC_ALL, "")
 
+
 class Usage(Exception):
     """Raise in case of invalid parameters"""
     def __init__(self, msg):
         self.msg = msg
+
 
 def _compare_pattern(sort_pattern, text1, text2):
     """Function to sort by regex"""
@@ -70,6 +72,7 @@ def _compare_pattern(sort_pattern, text1, text2):
 
     return locale.strcoll(text_matches[0].lower(), text_matches[1].lower())
 
+
 def split_and_sort(text, block_pattern, sort_pattern):
     """Split into blocks, sort them, and join them up again
     @param text: String of blocks to sort
@@ -84,7 +87,8 @@ def split_and_sort(text, block_pattern, sort_pattern):
 
     return ''.join(text_blocks)
 
-def main(argv = None):
+
+def main(argv=None):
     """Argument handling"""
 
     if argv is None:
